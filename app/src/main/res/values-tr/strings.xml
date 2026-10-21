@@ -681,7 +681,7 @@
     <string name="sp_sev_mild">Şiddet: hafif (FEV1 z-skoru −1,65 ile −2,5 arası)</string>
     <string name="sp_sev_moderate">Şiddet: orta (FEV1 z-skoru −2,5 ile −4 arası)</string>
     <string name="sp_sev_severe">Şiddet: ağır (FEV1 z-skoru −4\'ün altında)</string>
-    <string name="sp_gold">GOLD hava akımı evresi %1$d (KOAH söz konusuysa; ilaç sonrası FEV1 % beklenene göre)</string>
+    <string name="sp_gold">GOLD hava akımı evresi %1$d (KOAH söz konusuysa; ilaç sonrası FEV1 %% beklenene göre)</string>
     <string name="sp_bd_yes">İnhalere (bronkodilatör) anlamlı yanıt var.</string>
     <string name="sp_bd_no">İnhalere anlamlı yanıt yok.</string>
     <string name="sp_method_z">Yöntem: z-skorları (ATS/ERS 2022).</string>
