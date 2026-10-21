@@ -1,0 +1,4 @@
+Star, constellation and deep-sky data derived from d3-celestial (https://github.com/ofrohn/d3-celestial)
+Copyright (c) 2015, Olaf Frohn. BSD 3-Clause License.
+Underlying sources: Hipparcos / Yale Bright Star Catalogue (public domain), IAU constellation data,
+Messier catalogue. Distances (light-years) are rounded literature values added by Sensora.

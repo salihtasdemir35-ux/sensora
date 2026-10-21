@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sensora mark: a gauge ring (measurement) around a compass needle (direction),
+     closed by a single "sensor point". Content stays inside the 66dp adaptive-icon safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:pathData="M37.03,70.97 A24,24 0 1,1 70.97,70.97"
+        android:strokeColor="#FFFFFFFF" android:strokeWidth="3.5"
+        android:strokeLineCap="round" android:fillColor="#00000000" />
+    <path android:pathData="M54,33.5 L54,37 M33.5,54 L37,54 M74.5,54 L71,54"
+        android:strokeColor="#FFFFFFFF" android:strokeWidth="2.5" android:strokeLineCap="round" />
+    <path android:pathData="M66.73,41.27 L57.18,57.18 L50.82,50.82 Z" android:fillColor="#FFF4B860" />
+    <path android:pathData="M41.27,66.73 L50.82,50.82 L57.18,57.18 Z" android:fillColor="#FFD9F3F6" />
+    <path android:pathData="M54,54 m-2.8,0 a2.8,2.8 0 1,0 5.6,0 a2.8,2.8 0 1,0 -5.6,0"
+        android:fillColor="#FF08323D" android:strokeColor="#FFFFFFFF" android:strokeWidth="1.6" />
+    <path android:pathData="M54,77.5 m-2.2,0 a2.2,2.2 0 1,0 4.4,0 a2.2,2.2 0 1,0 -4.4,0"
+        android:fillColor="#FFF4B860" />
+</vector>
