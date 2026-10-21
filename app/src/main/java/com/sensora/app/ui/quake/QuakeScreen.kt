@@ -1,5 +1,7 @@
 package com.sensora.app.ui.quake
-
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import android.hardware.Sensor
 import android.hardware.SensorManager
 import androidx.compose.foundation.Canvas
