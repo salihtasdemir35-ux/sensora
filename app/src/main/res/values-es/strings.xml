@@ -681,7 +681,7 @@
     <string name="sp_sev_mild">Gravedad: leve (FEV1 z-score −1,65 a −2,5)</string>
     <string name="sp_sev_moderate">Gravedad: moderada (FEV1 z-score −2,5 a −4)</string>
     <string name="sp_sev_severe">Gravedad: grave (FEV1 z-score inferior a −4)</string>
-    <string name="sp_gold">Grado GOLD %1$d (si se trata de EPOC; según FEV1 % teórico tras broncodilatador)</string>
+    <string name="sp_gold">Grado GOLD %1$d (si se trata de EPOC; según FEV1 %% teórico tras broncodilatador)</string>
     <string name="sp_bd_yes">Respuesta significativa al inhalador (broncodilatador).</string>
     <string name="sp_bd_no">Sin respuesta significativa al inhalador.</string>
     <string name="sp_method_z">Método: z-scores (ATS/ERS 2022).</string>
