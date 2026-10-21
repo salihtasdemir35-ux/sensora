@@ -204,29 +204,29 @@ private fun HearingResultCard(tool: Tool, r: HearingScreeningResult, headset: St
             }
         }
 
-Note(R.string.hs_chart_legend)
+        Note(R.string.hs_chart_legend)
 
-HearingScreening.ORDERED.forEach { f ->
-    val rr = r.results.firstOrNull {
-        it.ear == Ear.RIGHT && it.frequency == f
-    } ?: return@forEach
+        HearingScreening.ORDERED.forEach { f ->
+            val rr = r.results.firstOrNull {
+                it.ear == Ear.RIGHT && it.frequency == f
+            } ?: return@forEach
 
-    val ll = r.results.firstOrNull {
-        it.ear == Ear.LEFT && it.frequency == f
-    }
+            val ll = r.results.firstOrNull {
+                it.ear == Ear.LEFT && it.frequency == f
+            }
 
-    val rightThreshold = rr.threshold?.let { "$it dBFS" }
-        ?: stringResource(R.string.hs_no_response)
+            val rightThreshold = rr.threshold?.let { "$it dBFS" }
+                ?: stringResource(R.string.hs_no_response)
 
-    val leftThreshold = ll?.threshold?.let { "$it dBFS" }
-        ?: stringResource(R.string.hs_no_response)
+            val leftThreshold = ll?.threshold?.let { "$it dBFS" }
+                ?: stringResource(R.string.hs_no_response)
 
-    InfoRow(
-        if (f >= 1000) "${f / 1000} kHz" else "$f Hz",
-        "${stringResource(R.string.ear_right)} $rightThreshold · " +
-            "${stringResource(R.string.ear_left)} $leftThreshold"
-    )
-}
+            InfoRow(
+                if (f >= 1000) "${f / 1000} kHz" else "$f Hz",
+                "${stringResource(R.string.ear_right)} $rightThreshold · " +
+                    "${stringResource(R.string.ear_left)} $leftThreshold"
+            )
+        }
 
 if (r.asymmetric) {
     Text(
