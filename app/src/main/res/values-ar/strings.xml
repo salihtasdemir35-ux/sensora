@@ -681,7 +681,7 @@
     <string name="sp_sev_mild">الشدة: خفيفة (قيمة z لـ FEV1 من −1.65 إلى −2.5)</string>
     <string name="sp_sev_moderate">الشدة: متوسطة (قيمة z لـ FEV1 من −2.5 إلى −4)</string>
     <string name="sp_sev_severe">الشدة: شديدة (قيمة z لـ FEV1 أقل من −4)</string>
-    <string name="sp_gold">درجة GOLD %1$d (إذا كان انسدادًا رئويًا مزمنًا؛ حسب FEV1 % المتوقع بعد موسّع القصبات)</string>
+    <string name="sp_gold">درجة GOLD %1$d (إذا كان انسدادًا رئويًا مزمنًا؛ حسب FEV1 %% المتوقع بعد موسّع القصبات)</string>
     <string name="sp_bd_yes">استجابة ملحوظة للبخاخ (موسّع القصبات).</string>
     <string name="sp_bd_no">لا استجابة ملحوظة للبخاخ.</string>
     <string name="sp_method_z">الطريقة: قيم z (ATS/ERS 2022).</string>
