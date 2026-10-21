@@ -1,11 +1,3 @@
-@Composable
-private fun Note(messageRes: Int) {
-    Text(
-        text = stringResource(messageRes),
-        style = MaterialTheme.typography.bodySmall,
-        color = MaterialTheme.colorScheme.onSurfaceVariant
-    )
-}
 package com.sensora.app.ui.quake
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
