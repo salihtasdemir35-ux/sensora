@@ -203,31 +203,64 @@ private fun HearingResultCard(tool: Tool, r: HearingScreeningResult, headset: St
                 }
             }
         }
-        Note(R.string.hs_chart_legend)
-        HearingScreening.ORDERED.forEach { f ->
-            val rr = r.results.firstOrNull { it.ear == Ear.RIGHT && it.frequency == f } ?: return@forEach
-            val ll = r.results.firstOrNull { it.ear == Ear.LEFT && it.frequency == f }
-            val rightThreshold = rr.threshold?.let { "$it dBFS" }
-                ?: stringResource(R.string.hs_no_response)
 
-            val leftThreshold = ll?.threshold?.let { "$it dBFS" }
-                ?: stringResource(R.string.hs_no_response)
+Note(R.string.hs_chart_legend)
 
-            InfoRow(
-                if (f >= 1000) "${f / 1000} kHz" else "$f Hz",
-                "${stringResource(R.string.ear_right)} $rightThreshold · " +
-                    "${stringResource(R.string.ear_left)} $leftThreshold"
-                    )
-        }
-        if (r.asymmetric) Text(stringResource(R.string.hs_asymmetric, r.asymmetricFrequencies.joinToString { if (it >= 1000) "${it / 1000} kHz" else "$it Hz" }), fontWeight = FontWeight.SemiBold)
-        else Text(stringResource(R.string.hs_symmetric), fontWeight = FontWeight.SemiBold)
-        if (!r.reliable) WarningCard(stringResource(R.string.hs_unreliable))
-        Note(R.string.hs_no_response_note)
-        UrgencyBanner(if (r.asymmetric && r.reliable) Urgency.DISCUSS else Urgency.NORMAL)
-        Note(R.string.hs_meaning)
-        WarningCard(stringResource(R.string.au_sudden))
-        InfoRow(stringResource(R.string.hs_headphones), headset ?: "—")
-        InfoRow(stringResource(R.string.hs_volume), "$volumePct %")
+HearingScreening.ORDERED.forEach { f ->
+    val rr = r.results.firstOrNull {
+        it.ear == Ear.RIGHT && it.frequency == f
+    } ?: return@forEach
+
+    val ll = r.results.firstOrNull {
+        it.ear == Ear.LEFT && it.frequency == f
+    }
+
+    val rightThreshold = rr.threshold?.let { "$it dBFS" }
+        ?: stringResource(R.string.hs_no_response)
+
+    val leftThreshold = ll?.threshold?.let { "$it dBFS" }
+        ?: stringResource(R.string.hs_no_response)
+
+    InfoRow(
+        if (f >= 1000) "${f / 1000} kHz" else "$f Hz",
+        "${stringResource(R.string.ear_right)} $rightThreshold · " +
+            "${stringResource(R.string.ear_left)} $leftThreshold"
+    )
+}
+
+if (r.asymmetric) {
+    Text(
+        stringResource(
+            R.string.hs_asymmetric,
+            r.asymmetricFrequencies.joinToString {
+                if (it >= 1000) "${it / 1000} kHz" else "$it Hz"
+            }
+        ),
+        fontWeight = FontWeight.SemiBold
+    )
+} else {
+    Text(
+        stringResource(R.string.hs_symmetric),
+        fontWeight = FontWeight.SemiBold
+    )
+}
+
+if (!r.reliable) {
+    WarningCard(stringResource(R.string.hs_unreliable))
+}
+
+Note(R.string.hs_no_response_note)
+
+UrgencyBanner(
+    if (r.asymmetric && r.reliable) Urgency.DISCUSS
+    else Urgency.NORMAL
+)
+
+Note(R.string.hs_meaning)
+WarningCard(stringResource(R.string.au_sudden))
+InfoRow(stringResource(R.string.hs_headphones), headset ?: "—")
+InfoRow(stringResource(R.string.hs_volume), "$volumePct %")
+
         SaveButton { note ->
             val avg = r.results.mapNotNull { it.threshold }.average().takeIf { !it.isNaN() } ?: 0.0
             save(tool.record(avg, "dBFS", if (r.reliable) Quality.LIMITED else Quality.UNRELIABLE, "hughson_westlake_dbfs",
