@@ -207,8 +207,17 @@ private fun HearingResultCard(tool: Tool, r: HearingScreeningResult, headset: St
         HearingScreening.ORDERED.forEach { f ->
             val rr = r.results.firstOrNull { it.ear == Ear.RIGHT && it.frequency == f } ?: return@forEach
             val ll = r.results.firstOrNull { it.ear == Ear.LEFT && it.frequency == f }
-            fun t(v: Int?) = v?.let { "$it dBFS" } ?: stringResource(R.string.hs_no_response)
-            InfoRow(if (f >= 1000) "${f / 1000} kHz" else "$f Hz", "${stringResource(R.string.ear_right)} ${t(rr.threshold)} · ${stringResource(R.string.ear_left)} ${t(ll?.threshold)}")
+            val rightThreshold = rr.threshold?.let { "$it dBFS" }
+    ?: stringResource(R.string.hs_no_response)
+
+val leftThreshold = ll?.threshold?.let { "$it dBFS" }
+    ?: stringResource(R.string.hs_no_response)
+
+InfoRow(
+    if (f >= 1000) "${f / 1000} kHz" else "$f Hz",
+    "${stringResource(R.string.ear_right)} $rightThreshold · " +
+        "${stringResource(R.string.ear_left)} $leftThreshold"
+) ${t(ll?.threshold)}")
         }
         if (r.asymmetric) Text(stringResource(R.string.hs_asymmetric, r.asymmetricFrequencies.joinToString { if (it >= 1000) "${it / 1000} kHz" else "$it Hz" }), fontWeight = FontWeight.SemiBold)
         else Text(stringResource(R.string.hs_symmetric), fontWeight = FontWeight.SemiBold)
