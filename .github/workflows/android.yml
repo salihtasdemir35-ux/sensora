@@ -1,0 +1,55 @@
+name: Build Sensora APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle wrapper executable (lost when uploading from Windows)
+        run: chmod +x gradlew
+
+      - name: Unit tests (measurement engine)
+        run: ./gradlew testDebugUnitTest --stacktrace
+
+      - name: Build debug APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Build release APK (signed if secrets exist)
+        env:
+          KEYSTORE_BASE64: ${{ secrets.SENSORA_KEYSTORE_BASE64 }}
+          SENSORA_KEYSTORE_PASSWORD: ${{ secrets.SENSORA_KEYSTORE_PASSWORD }}
+          SENSORA_KEY_ALIAS: ${{ secrets.SENSORA_KEY_ALIAS }}
+          SENSORA_KEY_PASSWORD: ${{ secrets.SENSORA_KEY_PASSWORD }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.jks"
+            export SENSORA_KEYSTORE="$RUNNER_TEMP/release.jks"
+          fi
+          ./gradlew assembleRelease bundleRelease --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sensora-apk
+          path: |
+            app/build/outputs/apk/**/*.apk
+            app/build/outputs/bundle/release/*.aab
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-reports
+          path: app/build/reports/tests/
