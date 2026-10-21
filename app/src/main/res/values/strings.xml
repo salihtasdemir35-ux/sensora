@@ -682,7 +682,7 @@
     <string name="sp_sev_mild">Severity: mild (FEV1 z-score −1.65 to −2.5)</string>
     <string name="sp_sev_moderate">Severity: moderate (FEV1 z-score −2.5 to −4)</string>
     <string name="sp_sev_severe">Severity: severe (FEV1 z-score below −4)</string>
-    <string name="sp_gold">GOLD airflow grade %1$d (if this is COPD, based on FEV1 % predicted after inhaler)</string>
+    <string name="sp_gold">GOLD airflow grade %1$d (if this is COPD, based on FEV1 %% predicted after inhaler)</string>
     <string name="sp_bd_yes">Significant response to the inhaler (bronchodilator).</string>
     <string name="sp_bd_no">No significant response to the inhaler.</string>
     <string name="sp_method_z">Method: z-scores (ATS/ERS 2022).</string>
