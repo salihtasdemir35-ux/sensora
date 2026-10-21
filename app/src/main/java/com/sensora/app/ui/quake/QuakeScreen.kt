@@ -246,3 +246,11 @@ private fun Safety() {
     }
     WarningCard(stringResource(R.string.quake_alerts_note))
 }
+@Composable
+private fun Note(messageRes: Int) {
+    Text(
+        text = stringResource(messageRes),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+    )
+}
