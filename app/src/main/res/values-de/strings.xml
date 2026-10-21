@@ -681,7 +681,7 @@
     <string name="sp_sev_mild">Schweregrad: leicht (FEV1 z-Wert −1,65 bis −2,5)</string>
     <string name="sp_sev_moderate">Schweregrad: mittel (FEV1 z-Wert −2,5 bis −4)</string>
     <string name="sp_sev_severe">Schweregrad: schwer (FEV1 z-Wert unter −4)</string>
-    <string name="sp_gold">GOLD-Grad %1$d (falls COPD; nach FEV1 % Soll nach Bronchodilatation)</string>
+    <string name="sp_gold">GOLD-Grad %1$d (falls COPD; nach FEV1 %% Soll nach Bronchodilatation)</string>
     <string name="sp_bd_yes">Deutliches Ansprechen auf das Spray (Bronchodilatator).</string>
     <string name="sp_bd_no">Kein deutliches Ansprechen auf das Spray.</string>
     <string name="sp_method_z">Methode: z-Werte (ATS/ERS 2022).</string>
